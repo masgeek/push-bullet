@@ -42,18 +42,20 @@ dependencies {
 
 }
 
-configure<PublishingExtension> {
-    publications.create<MavenPublication>("push-bullet") {
-        groupId = project.group as String
-        artifactId = project.name
-        version = project.version as String
-        pom.packaging = "jar"
-        //artifact("$buildDir/libs/pushbullet.jar")
+//configure<PublishingExtension> {
+//    publications.create<MavenPublication>("push-bullet") {
+//        groupId = project.group as String
+//        artifactId = project.name
+//        version = project.version as String
+//        pom.packaging = "jar"
+//        //artifact("$buildDir/libs/pushbullet.jar")
+//
+//    }
+//}
 
-    }
-    repositories {
-        mavenLocal()
-    }
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
 kotlin{
