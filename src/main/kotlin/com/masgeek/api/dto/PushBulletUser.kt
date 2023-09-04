@@ -1,4 +1,4 @@
-package pushbullet.api.dto
+package com.masgeek.api.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

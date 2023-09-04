@@ -1,7 +1,7 @@
-package pushbullet.api
+package com.masgeek.api
 
-import pushbullet.api.dto.PushMessage
-import pushbullet.api.dto.PushBulletUser
+import com.masgeek.api.dto.PushMessage
+import com.masgeek.api.dto.PushBulletUser
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
