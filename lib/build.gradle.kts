@@ -16,6 +16,10 @@ plugins {
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    maven {
+        url = uri("https://jitpack.io")
+    }
+
 }
 
 dependencies {
