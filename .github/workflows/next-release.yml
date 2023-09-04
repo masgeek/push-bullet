@@ -19,6 +19,6 @@ jobs:
           reviewer: ${{ github.actor }}
           assignee: ${{ github.actor }}
           target_branch: main
-          label: automatic,release
+#          label: automatic,release
           new_string: ${{ github.event.commits[0].message }}
           get_diff: true
