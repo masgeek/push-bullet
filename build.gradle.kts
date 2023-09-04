@@ -8,8 +8,8 @@ plugins {
     id("java-library")
 }
 
-group = "com.munywele"
-version = "1.0.0"
+//group = "com.munywele"
+//version = "1.0.0"
 
 repositories {
     // Use Maven Central for resolving dependencies.
