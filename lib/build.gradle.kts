@@ -7,7 +7,7 @@
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.9.0"
+    id("org.jetbrains.kotlin.jvm") version "1.9.10"
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
@@ -16,6 +16,10 @@ plugins {
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    maven {
+        url = uri("https://jitpack.io")
+    }
+
 }
 
 dependencies {
@@ -31,7 +35,7 @@ dependencies {
     api("org.apache.commons:commons-math3:3.6.1")
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation("com.google.guava:guava:32.1.1-jre")
+    implementation("com.google.guava:guava:32.1.2-jre")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-jackson:2.9.0") // Jackson integration
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
