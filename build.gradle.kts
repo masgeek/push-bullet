@@ -8,7 +8,7 @@ plugins {
     id("java-library")
 }
 
-//group = "com.munywele"
+group = "com.masgeek"
 //version = "1.0.0"
 
 repositories {
