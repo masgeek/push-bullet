@@ -1,2 +1,1 @@
-rootProject.name = "pushbullet-api"
-
+rootProject.name = "push-bullet"
