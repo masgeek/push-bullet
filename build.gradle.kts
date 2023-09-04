@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.9.10"
     id("maven-publish")
-    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
     id("java-library")
 }
 
@@ -43,7 +43,7 @@ dependencies {
 }
 
 configure<PublishingExtension> {
-    publications.create<MavenPublication>("pushbullet") {
+    publications.create<MavenPublication>("push-bullet") {
         groupId = project.group as String
         artifactId = project.name
         version = project.version as String
