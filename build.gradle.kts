@@ -56,6 +56,9 @@ configure<PublishingExtension> {
     }
 }
 
+kotlin{
+    jvmToolchain(17)
+}
 
 tasks.test {
     useJUnitPlatform()
