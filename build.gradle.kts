@@ -1,75 +1,48 @@
-
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+    }
+}
+
 plugins {
-    kotlin("jvm") version "1.9.10"
+    kotlin("jvm") version "1.9.10" apply false
     id("maven-publish")
-    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
-    id("java-library")
+    id("io.github.gradle-nexus.publish-plugin") version "1.3.0" apply false
 }
 
-group = "com.masgeek"
-//version = "1.0.0"
+allprojects {
+    group = "com.masgeek"
+    version = "1.0-SNAPSHOT"
 
-repositories {
-    // Use Maven Central for resolving dependencies.
-    mavenCentral()
-    maven {
-        url = uri("https://jitpack.io")
+    repositories {
+        mavenCentral()
     }
 
-}
 
-dependencies {
-    // Use the Kotlin JUnit 5 integration.
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-
-    // Use the JUnit 5 integration.
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.0")
-
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation("com.google.guava:guava:32.1.2-jre")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-jackson:2.9.0") // Jackson integration
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
-
-//    testImplementation("org.mockito.core:5.5.0")
-//    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
-
-
-}
-
-configure<PublishingExtension> {
-    publications.create<MavenPublication>("push-bullet") {
-        groupId = project.group as String
-        artifactId = project.name
-        version = project.version as String
-        pom.packaging = "jar"
-        //artifact("$buildDir/libs/pushbullet.jar")
-
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "17"
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+        }
     }
 }
 
-java {
-    withSourcesJar()
-    withJavadocJar()
-}
+subprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url = uri("https://jitpack.io")
+        }
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+    }
 
-kotlin{
-    jvmToolchain(17)
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "17"
-}
-
-tasks.named("jar") {
-    enabled = true
 }

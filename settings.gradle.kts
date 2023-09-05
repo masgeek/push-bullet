@@ -1,1 +1,2 @@
-rootProject.name = "push-bullet"
+rootProject.name = "push-bullet-service"
+include("push-bullet")
