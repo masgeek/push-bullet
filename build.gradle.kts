@@ -32,8 +32,8 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("com.google.guava:guava:32.1.2-jre")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-jackson:2.9.0") // Jackson integration
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-jackson:2.11.0") // Jackson integration
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
 
 //    testImplementation("org.mockito.core:5.5.0")
